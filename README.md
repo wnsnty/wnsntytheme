@@ -13,9 +13,9 @@ That said, Wnsnty.XYZ is designed to be modular and easily extendable. Page sect
 Drop into your themes folder. Since only SCSS files are included, you must compile wnsnty.css by running css/source through SASS compiler.
 
 ## Wnsnty.xyz uses the following third party libraries:
-Bootstrap: getboostrap.com
-PhotoSwipe: dimsemenov/PhotoSwipe
-Lazysizes:  aFarkas/lazysizes
-Highlightjs:  highlightjs/highlight.js
+- Bootstrap: getboostrap.com
+- PhotoSwipe: dimsemenov/PhotoSwipe
+- Lazysizes:  aFarkas/lazysizes
+- Highlightjs:  highlightjs/highlight.js
 
 Fonts provided by FontAwesome and Google Fonts.
