@@ -1,0 +1,11 @@
+<div class="block-tc">
+    <div class="container">
+        {% setcontent block = 'blocks/blocktc' %}
+        {% if block.title %}
+            <h2>{{ block.title }}</h2>
+        {% endif %}
+        {% if block.contenthtml %}
+            {{ block.contenthtml }}
+        {% endif %}
+    </div>
+</div>

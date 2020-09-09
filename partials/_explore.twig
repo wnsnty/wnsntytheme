@@ -1,0 +1,115 @@
+{% setcontent block_explore = 'blocks/explore' %}
+
+
+{% if block_explore.image %}
+    <div class="explore" style="background-image: url('{{ asset(block_explore.image, 'files') }}');">
+{% else %}
+    <div class="explore">
+{% endif %}
+
+
+        {# Section Container #}
+        <div class="container-fluid">
+
+            {# Header #}
+            <div class="row">
+
+                <div class="explore-header">
+
+                    {% if block_explore.title %}
+                        <h2>{{ block_explore.title }}</h2>
+                    {% endif %}
+
+                    {% if block_explore.contenthtml %}
+                        {{ block_explore.contenthtml }}
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+
+            {# Cards #}
+            <div class="row">
+
+                {# Left Side Padding #}
+                <div class="col-12 col-xl-2"></div>
+
+
+                {# Left Box #}
+                <div class="col-12 col-xl-3">
+
+                    <div class="explore-box">
+
+                        {% setcontent entries = 'entries' %}
+                        {% setcontent block_a = 'blocks/triplea' %}
+
+                        <h2 class="explore-count d-none d-xl-block">{{ entries|length }}</h2>
+
+                        <h2 class="explore-title d-none d-xl-block">{{ block_a.title }}</h2>
+
+                        <h2 class="explore-combined d-xl-none">{{ entries|length }} {{ block_a.title }}</h2>
+
+                        <p class="explore-desc">{{ block_a.content }}</p>
+
+                        <a href="{{ block_a.contentlink }}" role="button" class="btn btn-light btn-lg btn-block explore-btn">Explore {{ block_a.title }}</a>
+
+                    </div>
+
+                </div>
+
+
+                {# Center Box #}
+                <div class="col-12 col-xl-2">
+
+                    <div class="explore-box">
+
+                        {% setcontent resources = 'resources' %}
+                        {% setcontent block_b = 'blocks/tripleb' %}
+
+                        <h2 class="explore-count d-none d-xl-block">{{ resources|length }}</h2>
+
+                        <h2 class="explore-title d-none d-xl-block">{{ block_b.title }}</h2>
+
+                        <h2 class="explore-combined d-xl-none">{{ resources|length }} {{block_b.title}}</h2>
+
+                        <p class="explore-desc">{{ block_b.content }}</p>
+
+                        <a href="{{ block_b.contentlink }}" role="button" class="btn btn-light btn-lg btn-block explore-btn">Explore {{ block_b.title }}</a>
+
+                    </div>
+
+                </div>
+
+
+                {# Right Box #}
+                <div class="col-12 col-xl-3">
+
+                    <div class="explore-box">
+
+                        {% setcontent galleries = 'galleries' %}
+                        {% setcontent block_c = 'blocks/triplec' %}
+
+                        <h2 class="explore-count d-none d-xl-block">{{ galleries|length }}</h2>
+
+                        <h2 class="explore-title d-none d-xl-block">{{ block_c.title }}</h2>
+
+                        <h2 class="explore-combined d-xl-none">{{ galleries|length }} {{block_c.title}}</h2>
+
+                        <p class="explore-desc">{{ block_c.content }}</p>
+
+                        <a href="{{ block_c.contentlink }}" role="button" class="btn btn-light btn-lg btn-block explore-btn">Explore {{ block_c.title }}</a>
+
+                    </div>
+
+                </div>
+
+
+                {# Right Side Padding #}
+                <div class="col-12 col-xl-2"></div>
+
+            </div>
+
+        </div>
+
+    </div>

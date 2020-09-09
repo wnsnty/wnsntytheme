@@ -1,0 +1,56 @@
+{% set link = pager.makelink() %}
+{% if pager.totalpages > 1 %}
+<nav id="listing-pagination" aria-label="pagination">
+    <ul class="pagination">
+        {# Page == 1, Disable Previous Button #}
+        {% if pager.current == 1 %}
+        <li class="page-item disabled"><a class="page-link" href="">Previous</a></li>
+        {% else %}
+        <li class="page-item"><a class="page-link" href="{{ link }}{{ pager.current - 1 }}">Previous</a></li>
+        {% endif %}
+
+        {# add leading ellipsis current page greater than 2 and more than 3 pages #}
+        {% if pager.current > 2  and pager.totalpages > 3 %}
+            <li class="page-item disabled"><a class="page-link" href="">...</a></li>
+        {% endif %}
+
+        {# Case: Total Pages == 2 #}
+        {% if pager.totalpages == 2 %}
+            {% if pager.current == 1 %}
+                <li class="page-item active"><a class="page-link" href="{{ link }}{{ pager.current }}">1</a></li>
+                <li class="page-item"><a class="page-link" href="{{ link }}{{ pager.current + 1 }}">2</a></li>
+            {% elseif pager.current == 2%}
+                <li class="page-item"><a class="page-link" href="{{ link }}{{ pager.current - 1 }}">1</a></li>
+                <li class="page-item active"><a class="page-link" href="{{ link }}{{ pager.current }}">2</a></li>
+            {% endif %}
+        {# Case: Current Page == 1, 3 or more pages #}
+        {% elseif pager.current == 1 and pager.totalpages >= 3 %}
+            <li class="page-item active"><a class="page-link" href="{{ link }}{{ pager.current }}">1</a></li>
+            <li class="page-item"><a class="page-link" href="{{ link }}{{ pager.current + 1 }}">2</a></li>
+            <li class="page-item"><a class="page-link" href="{{ link }}{{ pager.current + 2 }}">3</a></li>
+        {# Case: Current Page >= 2, 3 or more pages, but not last page #}
+        {% elseif pager.current >= 2 and pager.current != pager.totalpages and pager.totalpages >= 3 %}
+            <li class="page-item"><a class="page-link" href="{{ link }}{{ pager.current - 1 }}">{{ pager.current - 1 }}</a></li>
+            <li class="page-item active"><a class="page-link" href="{{ link }}{{ pager.current }}">{{ pager.current }}</a></li>
+            <li class="page-item"><a class="page-link" href="{{ link }}{{ pager.current + 1 }}">{{ pager.current + 1 }}</a></li>
+        {# Case: Current Page == last page, 3 or more pages #}
+        {% elseif pager.current == pager.totalpages and pager.totalpages >= 3 %}
+            <li class="page-item"><a class="page-link" href="{{ link }}{{ pager.current - 2}}">{{ pager.current - 2 }}</a></li>
+            <li class="page-item"><a class="page-link" href="{{ link }}{{ pager.current - 1 }}">{{ pager.current - 1 }}</a></li>
+            <li class="page-item active"><a class="page-link" href="{{ link }}{{ pager.current }}">{{ pager.current }}</a></li>
+        {% endif %}
+
+        {# add trailing ellipsis if not last or second to last page, and more than 3 pages #}
+        {% if pager.current < (pager.totalpages - 1) and pager.totalpages > 3 %}
+            <li class="page-item disabled"><a class="page-link" href="">...</a></li>
+        {% endif %}
+
+        {# Page == Totalpages, Disable Next Button #}
+        {% if pager.current == 1 and pager.totalpages == 1  or pager.current == pager.totalpages %}
+        <li class="page-item disabled"><a class="page-link" href="">Next</a></li>
+        {% else %}
+        <li class="page-item"><a class="page-link" href="{{ link }}{{ pager.current + 1 }}">Next</a></li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="{{ htmllang() }}">
+    <head>
+        {# Analytics #}
+        {{ include('partials/_analytics.twig') }}
+
+        {# Required meta tags #}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        {% if record.teaser is defined %}
+            <meta name="description" content="{{ record.teaser }}">
+        {% endif %}
+
+        {# Sitemap #}
+        <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
+        {# Bootstrap CSS #}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="{{ asset('css/wnsnty.css', 'theme') }}">
+
+        {# optional css #}
+        {% block csshead %}
+        {% endblock csshead %}
+
+        {# Google Fonts #}
+        <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Varela&family=Varela+Round&display=swap" rel="stylesheet">
+
+        {# Font Awesome #}
+        <script src="https://use.fontawesome.com/ac0b9afb57.js"></script>
+
+        {% block title %}
+            {% if record.title is defined %}
+                <title>{{ record.title|striptags }} - {{ config.get('general/sitename') }}</title>
+            {% endif %}
+            {% if record.title is not defined and config.get('general/payoff') %}
+                <title>{{ config.get('general/payoff') }} - {{ config.get('general/sitename') }}</title>
+            {% endif %}
+        {% endblock title %}
+    </head>
+    <body>
+        {{ include('partials/_navbar.twig') }}
+
+        {% block body %}
+        {% endblock body %}
+
+        {# LazySizes lazy load images and autoselect jpeg/webp #}
+        <script src="{{ asset('js/lazysizes.min.js', 'theme') }}" async=""></script>
+
+        {# jQuery first, then Popper.js, then Bootstrap JS #}
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        {# init highlight #}
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+        <script>
+            hljs.initHighlightingOnLoad();
+        </script>
+
+        {# wnsnty.xyz theme js #}
+        <script src="{{ asset('js/wnsntyxyz.js', 'theme') }}"></script>
+
+        {# optional js #}
+        {% block jsbody %}
+        {% endblock jsbody %}
+    </body>
+</html>

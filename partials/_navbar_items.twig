@@ -1,0 +1,56 @@
+{# taken from base-2018 #}
+{# modified for use with bootstrap 4 #}
+
+{# This file might seem a little complex, because of the high density of tags.
+   It uses Twig macros and ternary selectors. Read up on them, if required:
+   macros: http://twig.sensiolabs.org/doc/templates.html#macros
+   ternary operators: http://twig.sensiolabs.org/doc/templates.html#other-operators
+#}
+
+{# Make sure the setting for the submenus is defined. #}
+{% if withsubmenus is not defined %}
+    {% set withsubmenus = true %}
+{% endif %}
+
+{# macro for generating navbar links for bootstrap navbar. Recursively generates
+   submenus, accounts for bootstrap submenu structure difference from top level #}
+{% macro display_menu_item(item, loop, extraclass, withsubmenus, issubmenu) %}
+    {% from _self import display_menu_item %}
+    {% spaceless %}
+    {% if item.submenu|default is empty %}
+        {% if issubmenu == false %}
+            <li class="nav-item {{ item|current ? 'active' }}">
+                <a href="{{ item.link }}" title='{{ item.title|default('')|escape }}' class='nav-link'>
+                    {{- item.label|default('-') -}}
+                </a>
+            </li>
+        {% else %}
+            <a href="{{ item.link }}" title='{{ item.title|default('')|escape }}' class='dropdown-item {{ item|current ? 'active' }}'>
+                {{- item.label|default('-') -}}
+            </a>
+        {% endif %}
+    {% endif %}
+    {% if item.submenu is defined and withsubmenus %}
+    <li class="nav-item dropdown {{ item|current ? 'active' }}">
+        <a class="nav-link dropdown-toggle" href="{{ item.link }}" title='{{ item.title|default('')|escape }}' role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{- item.label|default('-') -}}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            {% for submenu in item.submenu|default %}
+                {{ display_menu_item(submenu, loop, extraclass, withsubmenus, true) }}
+            {% endfor %}
+        </div>
+    </li>
+    {% endif %}
+    {% endspaceless %}
+{% endmacro %}
+
+{# Make display_menu_item macro available for use #}
+{% from _self import display_menu_item %}
+
+{# The main menu loop: Iterates over the items, calling `display_menu_item` #}
+{% for item in menu %}
+    {% if item.label is defined %}
+        {{ display_menu_item(item, loop, '', withsubmenus, false) }}
+    {% endif %}
+{% endfor %}

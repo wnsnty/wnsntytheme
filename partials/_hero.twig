@@ -1,0 +1,44 @@
+{% setcontent entries = 'entries/latest/1' %}
+
+{% for entry in entries %}
+
+    <div class="jumbotron jumbotron-fluid hero" style="background-image: url('{{ asset(entry.image, 'files') }}');">
+
+        <div class="container hero-container">
+
+            <div class="hero-info">
+
+                <div>
+                    <a href="{{ entry.link }}">
+                        <h1 class="display-4">{{ entry.title }}</h1>
+                    </a>
+                </div>
+
+                <div>
+                    <a href="{{ entry.link }}">
+                        <p class="lead">{{ entry.teaser }}</p>
+                    </a>
+                </div>
+
+                <div>
+                    <a class="btn btn-primary btn-lg" href="{{ entry.link }}" role="button">Read More</a>
+                </div>
+
+            </div>
+
+        </div>
+
+        {# scroll down arrow #}
+        <div class="hero-down">
+
+            <a href="#afterhero">
+                <i class="fa fa-arrow-down hero-down-btn" aria-hidden="true"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+{% else %}
+    <p>{{ __("general.phrase.no-content-found") }}</p>
+{% endfor %}

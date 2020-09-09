@@ -1,0 +1,29 @@
+<table class="table">
+    <tbody>
+        {% for record in records %}
+            <tr>
+                <th>
+                {% if record.image is not empty %}
+                    <a href="{{ image(record.image) }}">
+                        <img src="{{ thumbnail(record.image, 100, 75) }}" alt="{{ (record.image).alt|default(record.title) }}">
+                    </a>
+                {% else %}
+                    <p>No Image Available</p>
+                {% endif %}
+                </th>
+                <th>
+                    <h4 class="listing-title"><a href="{{ record.link }}">{{ record.title }}</a></h4>
+                    <p class="listing-teaser">{{ record.teaser }}</p>
+                    <p class="listing-date d-block d-sm-none">{{ record.datecreated|date('M d, Y') }}</p>
+                </th>
+                <th>
+                    <p class="listing-date d-none d-sm-block">{{ record.datecreated|date('M d, Y') }}</p>
+                </th>
+            </tr>
+        {% else %}
+            <tr>
+                <p>No posts available to display.</p>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

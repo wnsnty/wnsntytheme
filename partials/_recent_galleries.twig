@@ -1,0 +1,46 @@
+<div class="container-fluid recent-gallery">
+
+    <div class="container">
+
+        <h2>Teardowns</h2>
+
+        {% setcontent galleries = 'galleries/latest/6' %}
+        {% for row in galleries|batch(3, '') %}
+
+            {# row #}
+            <div class="row recent-gallery-row">
+
+            {% for gallery in row %}
+
+                {# column #}
+                <div class="col-lg align-self-stretch recent-gallery-col">
+                    <a href="{{ gallery.link }}">
+                        <div class="recent-gallery-inner">
+                            <img src="{{ thumbnail(gallery.image, 500, 250) }}" alt={{ gallery.image.title }}>
+                            <div class="recent-gallery-text">
+                                <h3 class="separator">{{ gallery.title }}</h3>
+                                <p class="recent-gallery-teaser">{{ gallery.teaser }}</p>
+                                <div class="recent-gallery-info">
+                                    <p>{{ gallery.gallery|length }} images</p>
+                                    <p>{{ gallery.datecreated|date("M d, Y") }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            {% endfor %}
+
+            </div>
+
+            {% if loop.last %}
+                <a class="btn btn-primary btn-lg" href="{{ path('contentlisting', {'contenttypeslug': 'galleries'}) }}">See All Galleries</a>
+            {% endif %}
+        
+        {% else %}
+            <p>Nothing here but cobwebs and dust.</p>
+        {% endfor %}
+
+    </div>
+
+</div>

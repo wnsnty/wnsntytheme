@@ -1,0 +1,56 @@
+<!--footer-->
+<div class="footer">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-4 footer-left">
+
+                {# Footer Block A #}
+                {% setcontent block = 'blocks/footera' %}
+                {% if block.contenthtml %}
+                    {{ block.contenthtml }}
+                {% endif %}
+
+            </div>
+
+            <div class="col-md-8 footer-right">
+
+                <div class="row">
+
+                    {# Footer Block B #}
+                    {% setcontent block = 'blocks/footerb' %}
+                    {% if block.contenthtml %}
+                        {{ block.contenthtml }}
+                    {% endif %}
+
+                    {# Footer Block C #}
+                    <div class="col-md-6">
+
+                        {% setcontent block = 'blocks/footerc' %}
+                        {% if block.contenthtml %}
+                            {{ block.contenthtml }}
+                        {% endif %}
+
+                    </div>
+
+                    {# Footer Block D #}
+                    <div class="col-md-6">
+
+                        {% setcontent block = 'blocks/footerd' %}
+                        {% if block.contenthtml %}
+                            {{ block.contenthtml }}
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

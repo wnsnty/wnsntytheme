@@ -1,0 +1,33 @@
+{# Navbar #}
+<nav class="navbar navbar-expand-xl navbar-dark navbar-transparent fixed-top">
+
+    <div class="container">
+
+        {# Site Branding #}
+        <a class="navbar-brand" href="{{ path('homepage') }}">
+            <img src="{{ asset('wnsnty/wnsnty_logo_150px.png', 'files') }}" height="53px" alt="">
+        </a>
+
+        {# Hamburger #}
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            {# Center Menu Links #}
+            <ul class="navbar-nav mr-auto">
+                {{ menu(template = 'partials/_navbar_items.twig') }}
+            </ul>
+
+            {# Search #}
+            <form class="form-inline my-2 my-lg-0" method="get" action="{{ path('search') }}" enctype="text/plain">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" value="{% if search is defined %}{{ search|escape }}{% endif %}" placeholder="{{ __('general.phrase.search-ellipsis') }}" name="search" id="search">
+                <button class="btn btn-primary my-2 my-sm-0" type="submit">{{ __('general.phrase.search') }}</button>
+            </form>
+        
+        </div>
+
+    </div>
+
+</nav>

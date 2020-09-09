@@ -1,0 +1,48 @@
+<div class="container-fluid recent-entry">
+
+    <div class="container">
+
+        <h2>Articles</h2>
+
+        {% setcontent entries = 'entries/latest/5' %}
+        {% for entry in entries %}
+
+            {# Card #}
+            <div class="container-fluid recent-entry-item">
+
+                <a href="{{ entry.link }}">
+                    <div class="row recent-entry-inner">
+
+                        {# Card Image #}
+                        <div class="col-sm-4 recent-entry-image">
+                            <img src="{{ thumbnail(entry.image, 500, 300) }}">
+                        </div>
+
+                        {# Card Text #}
+                        <div class="col-sm-8 recent-entry-text">
+                            <div class="separator">
+                                <h4>{{ entry.title }}</h4>
+                            </div>
+                            <div class="recent-entry-date">
+                                <p>{{ entry.datecreated|date("M d, Y") }}</p>
+                            </div>
+                            <p>{{ entry.teaser }}</p>
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+            {% if loop.last %}
+                <a class="btn btn-primary btn-lg" href="{{ path('contentlisting', {'contenttypeslug': 'entries'}) }}">See All Articles</a>
+            {% endif %}
+
+        {% else %}s
+            <p class="recent-entry-none">Nothing here but cobwebs and dust.</p>
+        {% endfor %}
+
+    </div>
+
+</div>
