@@ -1,0 +1,25 @@
+{% extends 'partials/_master.twig' %}
+
+{% block body %}
+
+    <div id="listing" class="main-content nav-offset">
+
+        <div class="container">
+
+            <h2>Archives</h2>
+
+            {{ pager(template = 'partials/_listing_pagination.twig') }}
+
+            {{ include('partials/_listings.twig') }}
+
+            <div class="listing-pagination-bottom">
+                {{ pager(template = 'partials/_listing_pagination.twig') }}
+            </div>
+
+        </div>
+
+    </div>
+
+    {{ include('partials/_footer.twig') }}
+
+{% endblock body %}

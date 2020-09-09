@@ -1,0 +1,12 @@
+{% extends 'partials/_master.twig' %}
+
+{% block body %}
+<div id="homepage" class="main-content">
+    {{ include('partials/_hero.twig') }}
+    <div id="afterhero" class="anchor-nopad"></div>
+    {{ include('partials/_explore.twig') }}
+    {{ include('partials/_recent_entries.twig') }}
+    {{ include('partials/_recent_galleries.twig') }}
+    {{ include('partials/_footer.twig') }}
+</div>
+{% endblock body %}

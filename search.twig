@@ -1,0 +1,41 @@
+{% extends 'partials/_master.twig' %}
+
+{% block title %}
+    <title>
+        {% if search is not empty %}
+            {{ __('general.phrase.search-results-for-variable', { '%search%': search }) }}
+        {% else %}
+            {{ __('general.phrase.search') }}
+        {% endif %}
+    </title>
+{% endblock title %}
+
+{% block body %}
+
+    <div id="search" class="main-content nav-offset">
+
+        <div class="container">
+
+            <h2>
+            {% if search is not empty %}
+                {{ __('general.phrase.search-results-for-variable', { '%search%': search }) }}
+            {% else %}
+                {{ __('general.phrase.search') }}
+            {% endif %}
+            </h2>
+
+            {{ pager(template = 'partials/_listing_pagination.twig') }}
+
+            {{ include('partials/_listings.twig') }}
+
+            <div class="listing-pagination-bottom">
+                {{ pager(template = 'partials/_listing_pagination.twig') }}
+            </div>
+
+        </div>
+
+    </div>
+
+    {{ include('partials/_footer.twig') }}
+
+{% endblock body %}

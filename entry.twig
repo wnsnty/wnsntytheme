@@ -1,0 +1,78 @@
+{% extends 'partials/_master.twig' %}
+
+{% block body %}
+
+    <div id="record" class="main-content nav-offset">
+
+        <div class="container record-container">
+
+            {# navigation #}
+            <nav class="d-xl-none" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ path('homepage') }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ path('contentlisting', {'contenttypeslug': 'entries'}) }}">Articles</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ record.title|length > 25 ? record.title|slice(0, 25) ~ '...' : record.title }}</li>
+                </ol>
+            </nav>
+
+            {# title and teaser #}
+            <div class="titleset">
+                <div>
+                    <h1>{{ record.title }}</h1>
+                </div>
+                <div>
+                    <h2>{{ record.teaser }}</h2>
+                </div>
+            </div>
+
+            {# table of contents and content #}
+            <div class="row record-content">
+
+                <div class="col-lg-3 record-toc">
+                    <div class="record-toc-inner">
+                        <h4>Table Of Contents</h4>
+                        <hr>
+                        {{ record.tableofcontents }}
+                        <hr>
+                        <p>Published: {{ record.datepublish|date("M d, Y") }}<p>
+                    </div>
+                </div>
+
+                <div class="col-lg-9 record-body">
+
+                    {# breadcrumb #}
+                    <nav class="d-none d-xl-block" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{{ path('homepage') }}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ path('contentlisting', {'contenttypeslug': 'entries'}) }}">Articles</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">{{ record.title|length > 75 ? record.title|slice(0, 75) ~ '...' : record.title }}</li>
+                        </ol>
+                    </nav>
+
+                    {# body #}
+                    <div class="entry-body">
+                        {% if not record.warning is empty %}
+                            <div class="alert alert-danger" role="alert">
+                                {{ record.warning }}
+                            </div>
+                        {% endif %}
+                        {{ record.body }}
+                        <a href="#record">Back To Top</a>
+                    </div>
+                </div>
+
+            </div>
+
+            {# Adspot #}
+            {% setcontent block = 'blocks/adspot-entry' %}
+            {% if block.contenthtml %}
+                {{ block.contenthtml }}
+            {% endif %}
+
+        </div>
+
+        {{ include('partials/_footer.twig') }}
+
+    </div>
+
+{% endblock body %}

@@ -1,0 +1,46 @@
+{% extends 'partials/_master.twig' %}
+
+{% block body %}
+
+    <div id="not-found" class="main-content nav-offset">
+
+        <div class="container">
+
+            <h2>404</h2>
+            <h3>Either you mistyped the URL, page does not exist, or the URL has changed.</h3>
+
+            {% setcontent block = 'blocks/not-found' %}
+            {% if block.contenthtml %}
+                {{ block.contenthtml }}
+            {% endif %}
+
+            <div class="row button-group">
+                <div class="col-lg">
+                    <div class="d-flex justify-content-center">
+                        <a href="{{ path('homepage') }}" class="btn btn-primary btn-lg w-100">Home</a>
+                    </div>
+                </div>
+                <div class="col-lg">
+                    <div class="d-flex justify-content-center">
+                        <a href="{{ path('contentlisting', {'contenttypeslug': 'entries'}) }}" class="btn btn-primary btn-lg w-100">Article Archives</a>
+                    </div>
+                </div>
+                <div class="col-lg">
+                    <div class="d-flex justify-content-center">
+                        <a href="{#{ path('contentlisting', {'contenttypeslug': 'resources'}) }#}" class="btn btn-primary btn-lg w-100 disabled">Resources</a>
+                    </div>
+                </div>
+                <div class="col-lg">
+                    <div class="d-flex justify-content-center">
+                        <a href="{{ path('contentlisting', {'contenttypeslug': 'galleries'}) }}" class="btn btn-primary btn-lg w-100">Teardown Archives</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        {{ include('partials/_footer.twig') }}
+
+    </div>
+
+{% endblock body %}

@@ -1,0 +1,26 @@
+{% extends 'partials/_master.twig' %}
+
+{% block body %}
+
+    <div class="container nav-offset" id="page">
+        {# title and teaser #}
+        <div class="titleset">
+            <div>
+                <h1>{{ record.title }}</h1>
+            </div>
+            <div>
+                <h2>{{ record.teaser }}</h2>
+            </div>
+        </div>
+
+        {# content #}
+        <div id="page-content">
+            {{ record.body }}
+            <a href="#page">Back To Top</a>
+        </div>
+        
+    </div>
+    
+    {{ include('partials/_footer.twig') }}
+
+{% endblock body %}
