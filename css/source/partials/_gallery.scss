@@ -1,0 +1,31 @@
+// wnsnty.xyz theme - gallery pages
+// Michael Elegado 2019
+
+.gallery-container .titleset{
+    h1 {
+        @extend %titleset;
+
+        padding: 0.5em;
+        font-size: 1.5em;
+
+        @include breakpoint-lg {
+            font-size: 2em;
+        }
+    }
+
+    h2 {
+        @extend %titleset;
+
+        padding: 1em;
+        font-size: 1em;
+    }
+}
+
+.gallery-images {
+    padding-bottom: 2vh;
+
+    img {
+        padding: 1vh 0 1vh 0;
+        width: 100%;
+    }
+}

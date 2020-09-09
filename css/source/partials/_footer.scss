@@ -1,0 +1,53 @@
+.footer {
+    position: relative;
+    bottom: 0vh;
+    padding: 3vh 0 3vh 0;
+    background-color: $thm-color-primary;
+    color: rgb(255, 255, 255);
+
+    p {
+        width: 100%;
+        padding: 0vh 2vw 0vh 2vw;
+        font-size: 0.9em;
+        text-align: center;
+
+        @include breakpoint-md {
+            margin-bottom: 0.5vh;
+            padding: 0vh 0vw 0vh 0vw;
+            text-align: left;
+
+        }
+    }
+
+    a, a:active {
+        color: rgb(255, 255, 255);
+        text-decoration: underline;
+    }
+
+    img {
+        width: 50%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+
+        @include breakpoint-sm {
+            width: 65%;
+        }
+
+        @include breakpoint-md {
+            width: 75%;
+        }
+
+        @include breakpoint-lg {
+            width: 90%;
+        }
+    }
+}
+
+.footer-right {
+    padding-top: 1.75vh;
+
+    @include breakpoint-md {
+        padding-top: 0vh;
+    }
+}

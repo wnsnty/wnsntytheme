@@ -1,0 +1,131 @@
+.explore {
+    min-height: 90vh;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.explore .container-fluid {
+    padding-top: 10vh;
+}
+
+.explore-header {
+    width: 100%;
+    padding-bottom: 5vh;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    text-shadow: 0px  0px 25px rgb(0, 0, 0),
+                 3px  3px 25px rgb(0, 0, 0),
+                -3px -3px 25px rgb(0, 0, 0),
+                 3px  3px 25px rgb(0, 0, 0),
+                -3px -3px 25px rgb(0, 0, 0);
+
+    h2 {
+        font-size: 3em;
+    }
+
+    @include breakpoint-md {
+        h2 {
+            font-size: 4em;
+        }
+    }
+}
+
+.explore-box {
+    margin: auto;
+    margin-bottom: 5vh;
+    padding: 0vh 2vw 2vh 2vw;
+    width: 80vw;
+
+
+    outline: 10px solid rgb(255, 255, 255);
+    //border-radius: 20px;
+
+    color: rgb(255, 255, 255);
+    text-align: center;
+
+    background-color: rgba(0, 0, 0, 0.8);
+
+    @include breakpoint-xl {
+        width: 15vw;
+        height: 40vh;
+        padding: 2vh 0vw 2vh 0vw;
+        margin-bottom: 0vh;
+    }
+}
+
+
+.explore-count {
+    margin-top: auto;
+    margin-bottom: 0vh;
+    font-size: 3em;
+
+    @include breakpoint-xl {
+        height: 35%;
+        font-size: 5em;
+    }
+
+    @include breakpoint-xl-dn {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+.explore-title {
+    h2 {
+        margin-top: auto;
+        margin-bottom: 3vh;
+        font-size: 3em;
+    }
+
+    @include breakpoint-xl {
+        height: 20%;
+
+        h2 {
+            font-size: 4em;
+        }
+    }
+
+    @include breakpoint-xl-dn {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+.explore-combined {
+    width: 100%;
+}
+
+.explore-desc {
+
+    @include breakpoint-xl {
+        padding-left: 5%;
+        padding-right: 5%;
+        height: 25%;
+    }
+
+}
+
+.explore-btn {
+
+    position: initial;
+
+    bottom: initial;
+    width: initial;
+    margin: initial;
+
+    border: none;
+
+    background-color: white;
+
+    @include breakpoint-xl {
+
+        position: absolute;
+
+        bottom: 0px;
+        width: 15vw;
+        margin: auto;
+
+    }
+
+}

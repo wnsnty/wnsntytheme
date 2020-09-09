@@ -1,0 +1,18 @@
+.block-tc {
+    margin-bottom: 0;
+    padding: 4vh 1vh 4vh 1vh;
+    background-image: url("../img/arduino-bg-blur.jpg");
+    background-position: center;
+    color: #fff;
+    text-align: center;
+
+    h2 {
+        font-size: 3em;
+    }
+
+    @include breakpoint-md {
+        h2 {
+            font-size: 5em;
+        }
+    }
+}

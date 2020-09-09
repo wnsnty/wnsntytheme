@@ -1,0 +1,107 @@
+.recent-entry {
+    padding-bottom: 2vh;
+    background-color: $thm-color-bg;
+    color: rgb(255, 255, 255);
+
+    .container {
+        background-color: inherit;
+    }
+
+    .recent-entry-none {
+        color: rgb(255, 255, 255)
+    }
+
+    .btn {
+        margin-top: 3vh;
+    }
+
+    .separator {
+        border-color: rgb(255, 255, 255);
+    }
+
+    h2 {
+        margin-bottom: 2vh;
+        padding-top: 2vh;
+        color: #fff;
+        font-size: 3.5em;
+        text-align: center;
+
+        @include breakpoint-md {
+            font-size: 5em;
+            text-align: left;
+        }
+    }
+}
+
+.recent-entry-item {
+    min-width: 100%;
+    min-height: 100%;
+    padding-bottom: 1vh;
+
+    a {
+        color: inherit;
+    }
+
+    a:hover {
+        color: inherit;
+        text-decoration: none;
+    }
+}
+
+.recent-entry-inner {
+    padding: 0vh 2vw 0vh 2vw;
+}
+
+.recent-entry-item:nth-child(even) {
+    background-color: rgba($thm-color-primary, 0.6);
+}
+
+.recent-entry-image {
+    padding: 3vh 2vw 1vh 2vw;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    @include breakpoint-md {
+        padding: 4vh 2vw 4vh 2vw;
+    }
+}
+
+.recent-entry-text {
+    padding: 2vh 2vw 4vh 2vw;
+
+    h4 {
+        font-family: $thm-font;
+        font-size: 1em;
+        font-weight: bold;
+
+        color: rgb(255, 255, 255);
+
+        @include breakpoint-md {
+            font-size: 1.25em;
+        }
+
+        @include breakpoint-xl {
+            font-size: 1.5em;
+        }
+    }
+
+    @include breakpoint-md {
+        padding: 4vh 2vw 4vh 2vw;
+    }
+}
+
+.recent-entry-date {
+    p {
+        margin-bottom: 0;
+        padding-top: 1vh;
+        color: rgb(255, 255, 255);
+    }
+
+    @include breakpoint-md {
+        bottom: 3vh;
+        right: 2vw;
+    }
+}

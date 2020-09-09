@@ -1,0 +1,24 @@
+// --------- title block ---------
+
+%titleset {
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    background-color: $thm-color-primary;
+}
+
+.titleset h1 {
+    @extend %titleset;
+
+    font-size: 1em;
+
+    @include breakpoint-lg {
+        font-size: 3em;
+    }
+}
+
+.titleset h2 {
+    @extend %titleset;
+
+    padding: 1em;
+    font-size: 1em;
+}

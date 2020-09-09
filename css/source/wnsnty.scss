@@ -1,0 +1,142 @@
+// wnsnty.xyz theme
+// Michael Elegado 2020
+
+// ---------- theme file ----------
+
+@import './wnsnty_styling.scss';
+
+// ---------- configurable ----------
+
+$nav-brand-height: 53px;
+$nav-offset: calc(2vh + 0.625rem + #{$nav-brand-height});
+
+// ---------- bootstrap ----------
+
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// ---------- horizontal breakpoint up ----------
+
+@mixin breakpoint-sm {
+    @media only screen and (min-width: $breakpoint-sm) {
+        @content;
+    }
+}
+
+@mixin breakpoint-md {
+    @media only screen and (min-width: $breakpoint-md) {
+        @content;
+    }
+}
+
+@mixin breakpoint-lg {
+    @media only screen and (min-width: $breakpoint-lg) {
+        @content;
+    }
+}
+
+@mixin breakpoint-xl {
+    @media only screen and (min-width: $breakpoint-xl) {
+        @content;
+    }
+}
+
+// ---------- vertical breakpoint down ----------
+
+@mixin breakpoint-sm-dn {
+    @media (max-width: calc($breakpoint-sm - 0.01px)) {
+        @content;
+    }
+}
+
+@mixin breakpoint-md-dn {
+    @media (max-width: calc($breakpoint-md - 0.01px)) {
+        @content;
+    }
+}
+
+@mixin breakpoint-lg-dn {
+    @media (max-width: calc($breakpoint-lg - 0.01px)) {
+        @content;
+    }
+}
+
+@mixin breakpoint-xl-dn {
+    @media (max-width: calc($breakpoint-xl - 0.01px)){
+        @content;
+    }
+}
+
+// ---------- vertical breakpoint ----------
+
+@mixin breakpoint-vert-sm {
+    @media only screen and (min-height: 400px) {
+        @content;
+    }
+}
+
+@mixin breakpoint-vert-md {
+    @media only screen and (min-height: 700px) {
+        @content;
+    }
+}
+
+@mixin breakpoint-vert-lg {
+    @media only screen and (min-height: 1000px) {
+        @content;
+    }
+}
+
+// ---------- partials import ----------
+
+@import './partials/bootstrap_callouts.scss';
+@import './partials/title_set.scss';
+@import './partials/title_block.scss';
+@import './partials/entry.scss';
+@import './partials/footer.scss';
+@import './partials/gallery.scss';
+@import './partials/hero.scss';
+@import './partials/listing.scss';
+@import './partials/navbar.scss';
+@import './partials/recent_entries.scss';
+@import './partials/recent_galleries.scss';
+@import './partials/triple_box.scss';
+@import './partials/explore.scss';
+@import './partials/page.scss';
+@import './partials/not-found.scss';
+
+// ---------- Overrides ----------
+
+html {scroll-behavior: smooth;}
+body {min-height: 100vh;}
+
+.container {margin-bottom: 0;}
+.navbar-brand, .nav-link {margin-left: 1rem;}
+.btn {border-radius: 0;}
+.navbar #search {border-radius: 0;}
+
+h1, h2, h3, h4, h5, h6 {font-family: $thm-font;}
+
+// ---------- helpers ----------
+
+.separator {
+    border-bottom: 1px rgb(0, 0, 0) solid;
+}
+
+%anchor {
+    position: relative;
+    display: block;
+    visibility: hidden;
+}
+
+.anchor {
+    @extend %anchor;
+    top: calc(-3.5vh - #{$nav-offset});
+}
+
+.anchor-nopad {
+    @extend %anchor;
+    top: calc(0vh - #{$nav-offset});
+}

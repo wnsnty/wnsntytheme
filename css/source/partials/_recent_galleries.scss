@@ -1,0 +1,70 @@
+.recent-gallery {
+    padding-bottom: 2vh;
+    background-color: $thm-color-bg;
+
+    .container {
+        background-color: inherit;
+    }
+
+    h2 {
+        margin-bottom: 2vh;
+        padding-top: 2vh;
+        color: rgb(255, 255, 255);
+        font-size: 3.5em;
+        text-align: center;
+
+        @include breakpoint-md {
+            font-size: 5em;
+            text-align: left;
+        }
+    }
+
+    p {
+        color: rgb(255, 255, 255);
+    }
+}
+
+.recent-gallery-col {
+    padding: 3vh;
+
+    a:hover {
+        text-decoration: none;
+    }
+}
+
+.recent-gallery-inner {
+    padding: 3vh;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    box-shadow:  0px 8px 33px -9px rgb(0, 0, 0);
+
+    img {
+        width: 100%;
+    }
+
+    h3 {
+        padding: 1vh 0 1vh 0;
+        color: rgb(0, 0, 0);
+        font-size: 1em;
+        font-weight: bold;
+    }
+
+    p {
+        color: rgb(0, 0, 0);
+    }
+}
+
+.recent-gallery-teaser {
+    margin-bottom: 10vh;
+}
+
+.recent-gallery-info {
+    position: absolute;
+    width: calc(100% - 12vh);
+    bottom: 5vh;
+
+    p {
+        text-align: right;
+        margin-bottom: 0;
+    }
+}
