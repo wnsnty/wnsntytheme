@@ -49,6 +49,8 @@
         {% block body %}
         {% endblock body %}
 
+        {{ include('partials/_footer.twig') }}
+
         {# LazySizes lazy load images and autoselect jpeg/webp #}
         <script src="{{ asset('js/lazysizes.min.js', 'theme') }}" async=""></script>
 
