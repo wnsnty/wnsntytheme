@@ -1,8 +1,8 @@
 {# Analytics tracker code #}
 {# block is inserted in html head #}
-{% setcontent block = 'blocks/website-analytics' %}
-{% if block.contenthtml %}
+{% setcontent analytics = 'blocks/website-analytics' %}
+{% if analytics.contenthtml %}
 
-    {{ block.contenthtml }}
+    {{ analytics.contenthtml }}
 
 {% endif %}

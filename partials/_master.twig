@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ htmllang() }}">
     <head>
         {# External Services Blocks #}
@@ -11,9 +11,6 @@
         {% if record.teaser is defined %}
             <meta name="description" content="{{ record.teaser }}">
         {% endif %}
-
-        {# Sitemap #}
-        <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
         {# Bootstrap CSS #}
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -29,9 +26,12 @@
         <link rel="stylesheet" href="{{ asset('css/wnsnty.css', 'theme') }}">
 
         {# optional css, head load last #}
-        {% block csshead %}{% endblock csshead %}
-        {% setcontent extracss_block = 'blocks/website-csshead' %}
-        {% if csshead_block.contenthtml %}{{ csshead_block.contenthtml }}{% endif %}
+        {% block csshead %}
+        {% endblock csshead %}
+        {% setcontent csshead_block = 'blocks/website-csshead' %}
+        {% if csshead_block.contenthtml %}
+            {{ csshead_block.contenthtml }}
+        {% endif %}
 
         {# title #}
         {% block title %}
