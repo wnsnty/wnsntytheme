@@ -1,0 +1,21 @@
+{# Adspot #}
+{# Placed where ads are to be rendered #}
+<div class="advs">
+
+    {# Desktop Banner Ads #}
+    <div class="advs-banner d-none d-lg-block">
+        {% setcontent advsbanner_block = 'blocks/website-advsbanner' %}
+        {% if advsbanner_block.contenthtml %}
+            {{ advsbanner_block.contenthtml }}
+        {% endif %}
+    </div>
+
+    {# Mobile Square Ads #}
+    <div class="advs-mobile d-lg-none">
+        {% setcontent advsbanner_block = 'blocks/website-advsmobile' %}
+        {% if advsmobile_block.contenthtml %}
+            {{ advsmobile_block.contenthtml }}
+        {% endif %}
+    </div>
+
+</div>
