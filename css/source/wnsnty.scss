@@ -91,19 +91,19 @@ $breakpoint-xl: 1200px;
 
 // ---------- partials import ----------
 
-@import './partials/bootstrap_callouts.scss';
-@import './partials/title_set.scss';
+@import './partials/common/bootstrap_callouts.scss';
+@import './partials/common/titleset.scss';
+@import './partials/common/footer.scss';
+@import './partials/common/navbar.scss';
 @import './partials/entry.scss';
-@import './partials/footer.scss';
 @import './partials/gallery.scss';
-@import './partials/hero.scss';
 @import './partials/listing.scss';
-@import './partials/navbar.scss';
-@import './partials/recent_entries.scss';
-@import './partials/recent_galleries.scss';
-@import './partials/explore.scss';
 @import './partials/page.scss';
-@import './partials/not-found.scss';
+@import './partials/404.scss';
+@import './partials/frontpage/hero.scss';
+@import './partials/frontpage/recent_entries.scss';
+@import './partials/frontpage/recent_galleries.scss';
+@import './partials/frontpage/explore.scss';
 
 // ---------- Overrides ----------
 
