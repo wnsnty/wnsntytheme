@@ -1,8 +1,9 @@
 <!doctype html>
 <html lang="{{ htmllang() }}">
     <head>
-        {# Analytics #}
-        {{ include('partials/_analytics.twig') }}
+        {# External Services Blocks #}
+        {{ include('partials/blocks/_analytics.twig') }}
+        {{ include('partials/blocks/_advs-head.twig') }}
 
         {# Required meta tags #}
         <meta charset="utf-8">
@@ -17,11 +18,8 @@
         {# Bootstrap CSS #}
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+        {# wnsnty master theme #}
         <link rel="stylesheet" href="{{ asset('css/wnsnty.css', 'theme') }}">
-
-        {# optional css #}
-        {% block csshead %}
-        {% endblock csshead %}
 
         {# Google Fonts #}
         <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
@@ -30,6 +28,12 @@
         {# Font Awesome #}
         <script src="https://use.fontawesome.com/ac0b9afb57.js"></script>
 
+        {# optional css, head load last #}
+        {% block csshead %}{% endblock csshead %}
+        {% setcontent extracss_block = 'blocks/website-csshead' %}
+        {% if csshead_block.contenthtml %}{{ csshead_block.contenthtml }}{% endif %}
+
+        {# title #}
         {% block title %}
             {% if record.title is defined %}
                 <title>{{ record.title|striptags }} - {{ config.get('general/sitename') }}</title>
