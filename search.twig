@@ -3,7 +3,7 @@
 {% block title %}
     <title>
         {% if search is not empty %}
-            {{ __('general.phrase.search-results-for-variable', { '%search%': search }) }}
+            Search Results For {{ search }} - {{ config.get('general/sitename') }}
         {% else %}
             {{ __('general.phrase.search') }}
         {% endif %}
@@ -16,20 +16,27 @@
 
         <div class="container">
 
-            <h2>
-            {% if search is not empty %}
-                {{ __('general.phrase.search-results-for-variable', { '%search%': search }) }}
-            {% else %}
-                {{ __('general.phrase.search') }}
-            {% endif %}
-            </h2>
+            <div class="titleset">
+                <div>
+                    <h1>
+                        {% if search is not empty %}
+                            {{ __('general.phrase.search-results-for-variable', { '%search%': search }) }}
+                        {% else %}
+                            {{ __('general.phrase.search') }}
+                        {% endif %}
+                    </h1>
+                </div>
+                <div>
+                    <h2>{{ searchresult.no_of_results }} results for {{ search }} found.</h2>
+                </div>
+            </div>
 
-            {{ pager(template = 'partials/_listing_pagination.twig') }}
+            {{ pager(template = 'partials/_search_pagination.twig') }}
 
-            {{ include('partials/_listings.twig') }}
+            {{ include('partials/_search_items.twig') }}
 
             <div class="listing-pagination-bottom">
-                {{ pager(template = 'partials/_listing_pagination.twig') }}
+                {{ pager(template = 'partials/_search_pagination.twig') }}
             </div>
 
         </div>
