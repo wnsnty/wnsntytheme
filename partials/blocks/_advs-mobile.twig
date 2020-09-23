@@ -1,0 +1,19 @@
+{# Adspot #}
+{# Placed where ads are to be rendered #}
+<div class="advs d-flex justify-content-center">
+
+    <p class="advs-title">Advertisement</p>
+
+    <div class="d-flex justify-content-center">
+
+        {# Mobile Banner Ad #}
+        <div class="advs-mobile d-lg-none">
+            {% setcontent advsmobile_block = 'blocks/website-advsmobile-banner' %}
+            {% if advsmobile_block.contenthtml %}
+                {{ advsmobile_block.contenthtml }}
+            {% endif %}
+        </div>
+
+    </div>
+
+</div>
