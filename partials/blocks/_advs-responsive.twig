@@ -1,0 +1,41 @@
+{# Adspot #}
+{# Placed where ads are to be rendered #}
+<div class="advs">
+
+    <p class="advs-title">Advertisement</p>
+
+    <div class="d-flex justify-content-center">
+
+        {# Desktop Ads #}
+        <div class="advs-banner d-none d-lg-block">
+            {% switch advsdesktop %}
+                {% case 'top' %}
+                    {% setcontent advsbanner_block = 'blocks/website-advsbanner-top' %}
+                {% case 'bottom' %}
+                    {% setcontent advsbanner_block = 'blocks/website-advsbanner-bottom' %}
+            {% endswitch %}
+            {% if advsbanner_block.contenthtml %}
+                {{ advsbanner_block.contenthtml }}
+            {% endif %}
+        </div>
+
+        {# Mobile Ads #}
+        <div class="advs-mobile d-lg-none">
+            {% switch advsmobile %}
+                {% case 'top' %}
+                    {% setcontent advsmobile_block = 'blocks/website-advsmobile-banner-top' %}
+                {% case 'bottom' %}
+                    {% setcontent advsmobile_block = 'blocks/website-advsmobile-banner-bottom' %}
+                {% case 'sq-top' %}
+                    {% setcontent advsmobile_block = 'blocks/website-advsmobile-sq-a' %}
+                {% case 'sq-bottom' %}
+                    {% setcontent advsmobile_block = 'blocks/website-advsmobile-sq-b' %}
+            {% endswitch %}
+            {% if advsmobile_block.contenthtml %}
+                {{ advsmobile_block.contenthtml }}
+            {% endif %}
+        </div>
+
+    </div>
+
+</div>
